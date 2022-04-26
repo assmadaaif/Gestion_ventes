@@ -1,0 +1,52 @@
+///////////////Produit///////////
+CREATE TABLE `produits` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`nom` VARCHAR(250) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`description` VARCHAR(250) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`image` VARCHAR(250) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`quantite` INT(11) NOT NULL,
+	`prix` FLOAT NOT NULL DEFAULT '0',
+	`ancien_prix` FLOAT NOT NULL DEFAULT '0',
+	`category_id` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`),
+	INDEX `category_id` (`category_id`),
+	CONSTRAINT `FK__categories` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)
+)
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=10
+;
+///////////////////////////////////////Categories////////////////////////////////////////
+CREATE TABLE `categories` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`nom` VARCHAR(250) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=7
+;
+///////////////////////////////////////clients///////////////
+CREATE TABLE `clients` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`nom` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`prenom` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`email` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`ville` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`adresse` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`telephone` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=11
+;
+///////////////////////////////user////////////////////
+	`username` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	`password` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8mb4_unicode_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=2
+;
